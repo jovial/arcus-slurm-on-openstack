@@ -46,6 +46,8 @@
                  control: "{{ inventory_hostname in groups['login'] }}"
                  batch: "{{ inventory_hostname in groups['computes'] }}"
                  runtime: true
+          - include_role:
+              name: stackhpc.ofed
     when: buildgroup is not defined or inventory_hostname == groups[buildgroup][0]
 - hosts: login
   gather_facts: false

@@ -3,3 +3,6 @@
   version: actions
   name: stackhpc.openhpc
 - src: stackhpc.nfs
+- src: https://github.com/stackhpc/ansible-role-ofed
+  version: master
+  name: stackhpc.ofed
