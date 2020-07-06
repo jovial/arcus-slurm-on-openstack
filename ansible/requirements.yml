@@ -1,6 +1,6 @@
 ---
 - src: https://github.com/stackhpc/ansible-role-openhpc
-  version: actions
+  version: jg-actions
   name: stackhpc.openhpc
 - src: stackhpc.nfs
 - src: https://github.com/stackhpc/ansible-role-ofed

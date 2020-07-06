@@ -22,7 +22,7 @@ resource "openstack_compute_instance_v2" "compute" {
   flavor_name = var.flavor_name
   key_pair = var.key_pair
   config_drive = true
-  availability_zone = "${var.availability_zone}::${each.value}" # TODO: availability zone should probably be from config too?s
+  availability_zone = "${var.availability_zone}::${each.value}"
 
   dynamic "network" {
     for_each = var.networks
