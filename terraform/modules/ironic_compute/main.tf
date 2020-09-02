@@ -17,7 +17,7 @@ resource "openstack_compute_instance_v2" "compute" {
 
   for_each = data.external.openstack_baremetal.result
 
-  name = "${var.hostname_prefix}${each.key}"
+  name = "${each.key}"
   image_name = var.image_name
   flavor_name = var.flavor_name
   key_pair = var.key_pair

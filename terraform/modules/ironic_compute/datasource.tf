@@ -3,8 +3,7 @@ data "external" "openstack_baremetal" {
 
     query = {
         os_cloud = var.os_cloud
-        hostname_pattern = var.hostname_pattern
-        cluster_name = var.cluster_name
+        rack_info_csv = var.rack_info_csv
     }
 }
 

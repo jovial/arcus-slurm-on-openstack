@@ -32,10 +32,15 @@ variable "networks" {
   type = list(string)
 }
 
-variable "hostname_pattern" {
-  description = "Hostname pattern for all computes"
+variable "rack_info_csv" {
+  description = "CSV file that includes hardware_name, name and ip"
   type = string
 }
+
+#variable "hostname_pattern" {
+#  description = "Hostname pattern for all computes"
+#  type = string
+#}
 
 #
 # Optional Parameters
@@ -59,8 +64,8 @@ variable "availability_zone" {
   default = "nova"
 }
 
-variable "hostname_prefix" {
-  description = "Add a prefix to supplied hostname pattern"
-  type = string
-  default = ""
-}
+#variable "hostname_prefix" {
+#  description = "Add a prefix to supplied hostname pattern"
+#  type = string
+#  default = ""
+#}
