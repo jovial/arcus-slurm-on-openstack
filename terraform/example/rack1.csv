@@ -1,0 +1,3 @@
+dc,rack,rack_pos,height,hardware_name,manufacturer,model,serial,name,ip,mac_noformat,mac,bmc_ip,bmc_mac_noformat,bmc_mac,pxe_bootstrap_ip,nodetype,groups,s3048_port,sn3700c_port
+WCDC-DH1,DR06,33,1,svn4-dr06-u33,Dell,C6420,GVX3,cpu-p-1,10.238.215.100,,,,,,server,"all,nodes,cascadelake,csd3,compute-csd3,compute-cascadelake,Dell,C6420,csd3-2020q3p1,csd3-2020q3p1-dr06",ethsw-dr06-u20-p3,ethsw-dr06-u19-swp2s0
+WCDC-DH1,DR06,34,1,svn3-dr06-u34,Dell,C6420,FVX3,cpu-p-2,10.238.215.100,,,,,,,server,"all,nodes,cascadelake,csd3,compute-csd3,compute-cascadelake,Dell,C6420,csd3-2020q3p1,csd3-2020q3p1-dr06",ethsw-dr06-u20-p4,ethsw-dr06-u19-swp2s1
