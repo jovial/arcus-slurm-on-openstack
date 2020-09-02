@@ -6,8 +6,13 @@ provider "local" {
   version = "~> 1.4"
 }
 
+variable "rack" {
+  type = string
+}
+
 locals {
   config = yamldecode(file("../config.yml"))
+  csv = csvdecode(file("../${var.rack}.csv"))
 }
 
 module "ironic_compute" {
@@ -35,8 +40,8 @@ module "virtual_compute" {
   key_pair = local.config.compute.key_pair
   networks = local.config.compute.networks
 
-  hostname_prefix = "jg-computevm-"
-  vm_count = 1
+  hostname_prefix = "bk-computevm-"
+  vm_count = 0
   inventory_location = "../inventory/vm_compute"
   inventory_groupname = "vm_compute"
 }
