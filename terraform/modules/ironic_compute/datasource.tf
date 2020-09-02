@@ -4,6 +4,6 @@ data "external" "openstack_baremetal" {
     query = {
         os_cloud = var.os_cloud
         rack_info_csv = var.rack_info_csv
+        prop = "node_uuid"
     }
 }
-

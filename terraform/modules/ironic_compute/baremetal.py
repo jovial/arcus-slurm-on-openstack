@@ -17,7 +17,7 @@ def get_config():
         config["debug"] = False
     else:
         config = dict(
-           zip(('os_cloud', 'rack_info_csv'),
+           zip(('os_cloud', 'rack_info_csv', 'prop'),
                sys.argv[1:]))
         config["debug"] = True
         pprint.pprint(config)
@@ -61,10 +61,10 @@ def find_baremetal_nodes(conn, rack_info):
     return found
 
 
-def print_result(nodes):
+def print_result(nodes, prop_name):
     result = {}
     for node in nodes:
-        result[node["hardware_name"]] = node["node_uuid"]
+        result[node["hardware_name"]] = node[prop_name]
     print(json.dumps(result))
 
 
@@ -72,4 +72,5 @@ config = get_config()
 rack_info = get_rack_info(config["rack_info_csv"])
 conn = openstack.connection.from_config(cloud=config["os_cloud"])
 found = find_baremetal_nodes(conn, rack_info)
-print_result(found)
+print_result(found, config["prop"])
+#print(json.dumps(found))

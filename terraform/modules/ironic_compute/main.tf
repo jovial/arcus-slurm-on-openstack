@@ -13,11 +13,17 @@ provider "external" {
   version = "~> 1.2"
 }
 
+locals {
+  rack_info = csvdecode(file(var.rack_info_csv))
+  ips = { for node in local.rack_info: node.hardware_name => node.ip }
+  names = { for node in local.rack_info: node.hardware_name => node.name }
+}
+
 resource "openstack_compute_instance_v2" "compute" {
 
   for_each = data.external.openstack_baremetal.result
 
-  name = "${each.key}"
+  name = "${local.names[each.key]}"
   image_name = var.image_name
   flavor_name = var.flavor_name
   key_pair = var.key_pair
