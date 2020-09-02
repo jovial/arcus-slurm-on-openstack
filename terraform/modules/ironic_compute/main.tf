@@ -23,18 +23,20 @@ resource "openstack_compute_instance_v2" "compute" {
 
   for_each = data.external.openstack_baremetal.result
 
-  name = "${local.names[each.key]}"
+  name = local.names[each.key]
   image_name = var.image_name
   flavor_name = var.flavor_name
   key_pair = var.key_pair
   config_drive = true
   availability_zone = "${var.availability_zone}::${each.value}"
 
+  # TODO: just broke having more than one network
   dynamic "network" {
     for_each = var.networks
 
     content {
       name = network.value
+      fixed_ip_v4 = local.ips[each.key]
     }
   }
 
