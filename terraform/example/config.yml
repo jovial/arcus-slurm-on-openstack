@@ -11,8 +11,6 @@ compute:
     key_pair: "usual"
     networks:
      - "ilab"
-    hostname_pattern: "sv-b17-u37"
-    hostname_prefix: "jg-"
 
 controller:
     vm_count: 1
