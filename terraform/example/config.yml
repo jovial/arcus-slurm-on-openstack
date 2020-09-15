@@ -1,22 +1,22 @@
 
 # This file is all the variables needed by terraform to set up the cluster infra.
 
-os_cloud: p3 # name in clouds.yaml
+os_cloud: arcus # name in clouds.yaml
 
 cluster_name: "jg"
 
 compute:
-    image_name: "CentOS7.8-OpenHPC"
-    flavor_name: "compute-A"
-    key_pair: "usual"
+    image_name: "CentOS7-1907"
+    flavor_name: "bm.c6420.p8276.m192"
+    key_pair: "johng"
     networks:
-     - "ilab"
+     - "WCDC-Prov-43"
 
 controller:
     vm_count: 1
     hostname_prefix: "jg-login-"
     image_name: "CentOS7.8-OpenHPC"
-    flavor_name: "general.v1.tiny"
-    key_pair: "usual"
+    flavor_name: "vm.v1.small"
+    key_pair: "johng"
     networks:
-     - "ilab"
+     - "WCDC-Prov-43"

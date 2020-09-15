@@ -6,7 +6,7 @@ import sys, json, pprint
 import openstack
 import pprint
 
-from ClusterShell import NodeSet
+#from ClusterShell import NodeSet
 
 
 def get_config():
@@ -53,10 +53,12 @@ def find_baremetal_nodes(conn, rack_info):
             node_info["instance_uuid"] = node["instance_id"]
             found.append(rack_info[node.name])
 
-    if len(found) != len(hardware_names):
+    missing_count = len(hardware_names) - len(found)
+    if missing_count > 0:
         print(found)
-        print(hostnames)
-        raise Exception("Unable to find all baremetal nodes")
+        print(hardware_names)
+        raise Exception(
+            f"Unable to find all baremetal nodes: {missing_count}")
 
     return found
 
