@@ -11,7 +11,7 @@ details.
 
 ## Terraform
 
-The terraform tool must be installed and in your PATH. Installation instructions can be found [here](https://www.terraform.io/downloads.html).
+The terraform tool must be installed and in your `PATH`. Installation instructions can be found [here](https://www.terraform.io/downloads.html).
 
 ## Create infrastructure
 
@@ -27,9 +27,9 @@ for inspiration.
 You must also provide a CSV file describing the servers you wish to provision. The headings
 should appear as the first line in the file. The following fields are required:
 
-- `name`: name of instance that is deployed
-- `hardware_name`: the name of the node in ironic
-- `ip`: Use a fixed IP when provisioning the node
+- `name`: Name of instance that is deployed
+- `hardware_name`: The name of the node in ironic
+- `ip`: This will be the IP address assigned to the provisioned server
 
 The CSV file that terraform uses is determined by the `rack` variable. It will attempt
 to read `${var.rack}.csv`. This allows you to reuse the same terraform configuration
@@ -518,7 +518,7 @@ step. You can find the location from the output of `terraform apply`:
       + id                   = (known after apply)
     }
 ```
-HINT: look for the filename key.
+HINT: look for the `filename` key.
 
 You should repeat the process for the controller group. By the end of the process:
 
